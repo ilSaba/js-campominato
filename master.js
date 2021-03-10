@@ -1,6 +1,28 @@
 var bombsArray = [];
-var safesArray = []
-var maxNumber = 100
+var safesArray = [];
+
+// Difficoltà;
+var nonSelezionato = true;
+
+while (nonSelezionato) {
+    var difficulty = parseInt(prompt("Scegli il livello di difficoltà: {0=Easy} {1=Medium} {2=Pro}"));
+
+    nonSelezionato = false;
+    switch (difficulty) {
+        case 0:
+            var maxNumber = 100;
+        break;
+        case 1:
+            var maxNumber = 80;
+        break;  
+        case 2:
+            var maxNumber = 50;
+        break;
+        default:
+            nonSelezionato = true;
+        break;
+    }
+}
 
 bombsArray = createBombs(bombsArray, maxNumber);
 
@@ -8,6 +30,7 @@ var punteggio = game(bombsArray, safesArray, maxNumber);
 
 
 // Stampo punteggio
+
 console.log("HAI PERSO!");
 console.log("Hai ottenuto un punteggio di: " + punteggio);
 
